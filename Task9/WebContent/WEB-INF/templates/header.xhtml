@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body>
+
+	<p>#{msg['header.title']}</p>
+	<div id="language">
+
+		<h:form>
+			<h:commandLink
+				action="#{newsActionController.changeLocale(localeBean)}"
+				value="#{msg['header.eng']}">
+				<f:param name="locale" value="en" />
+			</h:commandLink>
+
+			<h:commandLink
+				action="#{newsActionController.changeLocale(localeBean)}"
+				value="#{msg['header.rus']}">
+				<f:param name="locale" value="ru" />
+			</h:commandLink>
+		</h:form>
+
+	</div>
+
+</h:body>
+
+</html>

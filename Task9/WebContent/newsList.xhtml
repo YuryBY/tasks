@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition
+	template="/WEB-INF/templates/mainTemplatesAssembly.xhtml">
+
+	<ui:define name="content">
+
+		<div id="breadcrumbs">
+			<h:form>
+				<h:commandLink action="#{newsActionController.list(newsForm)}"
+					value="#{msg['mainPage']}">
+				</h:commandLink>
+					#{msg['listPage.currentPage.list']}
+			</h:form>
+		</div>
+
+		#{newsActionController.initForm(newsForm)}
+		<h:form>
+
+			<table class="newsList">
+
+				<ui:repeat value="#{newsForm.newsList}" var="item">
+
+					<tr class="topBorder">
+						<td></td>
+					</tr>
+					<tr>
+						<td class="titleContent"><label id="Lbl002">
+								#{item.title} </label></td>
+						<td class="dateContent"><label id="Lbl004">
+								#{item.stringDate} </label></td>
+					</tr>
+					<tr>
+						<td colspan="5" class="space"></td>
+					</tr>
+					<tr>
+						<td class="briefContent"><label id="Lbl003">
+								#{item.brief} </label></td>
+						<td class="contentSpace"></td>
+						<td class="bottomSpace"></td>
+						<td class="bottomFields"><h:commandLink
+								action="#{newsActionController.details(newsForm)}"
+								value="#{msg['listPage.view']}">
+								<f:param name="newsId" value="#{item.id}"></f:param>
+							</h:commandLink>&nbsp; <h:commandLink
+								action="#{newsActionController.edit(newsForm)}"
+								value="#{msg['listPage.edit']}">
+								<f:param name="newsId" value="#{item.id}"></f:param>
+							</h:commandLink> <h:selectBooleanCheckbox styleClass="Cb001"
+								value="#{newsForm.choosenNews[item.id]}" /></td>
+					</tr>
+				</ui:repeat>
+
+			</table>
+
+			<p id="deleteSelected">
+				<h:commandButton action="#{newsActionController.delete(newsForm)}"
+					onclick="return confirmDeleteList();" styleClass="submitStyle"
+					value="#{msg['detailPage.button.delete']}">
+				</h:commandButton>
+			</p>
+
+		</h:form>
+
+		<div style="height: 100px"></div>
+	</ui:define>
+
+</ui:composition>
+</html>

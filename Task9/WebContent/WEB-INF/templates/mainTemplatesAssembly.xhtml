@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<title><ui:insert name="title">News Feed</ui:insert></title>
+	<ui:include src="/WEB-INF/templates/validationVariables.xhtml" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputScript library="js" name="validateEditSave.js" />
+	<h:outputScript library="js" name="confirmDeleteList.js" />
+	<h:outputScript library="js" name="onfirmDelete.js" />
+
+</h:head>
+
+<h:body>
+	<f:view locale="#{localeBean.locale}">
+
+		<div id="page-container">
+			<div id="header">
+				<ui:insert name="header">
+					<ui:include src="/WEB-INF/templates/header.xhtml" />
+				</ui:insert>
+			</div>
+
+			<div id="menu-content-container">
+				<div id="menu">
+					<ui:insert name="menu">
+						<ui:include src="/WEB-INF/templates/menu.xhtml" />
+					</ui:insert>
+				</div>
+
+				<div id="content">
+					<ui:insert name="content">
+					</ui:insert>
+				</div>
+
+				<div style="clear: both"></div>
+			</div>
+
+			<div id="footer">
+				<ui:insert name="footer">
+					<ui:include src="/WEB-INF/templates/footer.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+	</f:view>
+</h:body>
+
+</html>

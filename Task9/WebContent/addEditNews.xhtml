@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition
+	template="/WEB-INF/templates/mainTemplatesAssembly.xhtml">
+
+	<ui:define name="content">
+
+		<div id="breadcrumbs">
+			<h:form>
+				<h:commandLink action="#{newsActionController.list}"
+					value="#{msg['mainPage']}">
+				</h:commandLink>
+					#{msg['editPage.currentPage.edit']}
+			</h:form>
+		</div>
+
+		<h:form id="editForm">
+
+			<table id="editNewsContent">
+				<tr>
+					<td class="captionRow">#{msg['detailEditPages.newsTitle']}</td>
+					<td class="contentRow"><h:inputText styleClass="newsTitle"
+							id="titleText" value="#{newsForm.news.title}" /></td>
+				</tr>
+
+				<tr>
+					<td class="captionRow">#{msg['detailEditPages.newsDate']}</td>
+					<td class="contentRow"><h:inputText styleClass="newsDate"
+							id="dateText" value="#{newsForm.news.stringDate}" /></td>
+				</tr>
+				<tr>
+					<td class="captionRow">#{msg['detailEditPages.brief']}</td>
+					<td class="contentRow"><h:inputTextarea styleClass="briefNews"
+							id="briefArea" value="#{newsForm.news.brief}" /></td>
+				</tr>
+				<tr>
+					<td class="captionRow">#{msg['detailEditPages.content']}</td>
+
+					<td class="contentRow"><h:inputTextarea
+							value="#{newsForm.news.content}" styleClass="newsContent"
+							id="contentArea" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" id="editButtons"><h:commandButton
+							styleClass="submitStyle"
+							action="#{newsActionController.save(newsForm)}"
+							value="#{msg['editPage.button.save']}"
+							onclick="return validateFormSave();">
+							<f:param name="newsId" value="#{newsForm.news.id}"></f:param>
+						</h:commandButton> <h:commandButton styleClass="submitStyle"
+							value="#{msg['editPage.button.cancel']}"
+							onclick="history.back(); return false;" /></td>
+				</tr>
+			</table>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
+
+
+
+
+
+

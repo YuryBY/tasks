@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition
+	template="/WEB-INF/templates/mainTemplatesAssembly.xhtml">
+
+	<ui:define name="content">
+
+		<div id="breadcrumbs">
+			<h:form>
+				<h:commandLink action="#{newsActionController.list(newsForm)}"
+					value="#{msg['mainPage']}">
+				</h:commandLink>
+					#{msg['detailPage.currentPage.view']}
+			</h:form>
+		</div>
+
+		<table id="newsContent">
+			<tr class="newsTitle">
+				<td class="captionRow">#{msg['detailEditPages.newsTitle']}</td>
+				<td class="contentRow">#{newsForm.news.title}</td>
+			</tr>
+			<tr class="newsDate">
+				<td class="captionRow">#{msg['detailEditPages.newsDate']}</td>
+				<td class="contentRow">#{newsForm.news.stringDate}</td>
+			</tr>
+			<tr class="newsBrief">
+				<td class="captionRow">#{msg['detailEditPages.brief']}</td>
+				<td class="contentRow">#{newsForm.news.brief}</td>
+			</tr>
+			<tr class="newsContent">
+				<td class="captionRow">#{msg['detailEditPages.content']}</td>
+				<td class="contentRow">#{newsForm.news.content}</td>
+			</tr>
+		</table>
+
+		<div id="detailsButtons">
+			<h:form>
+				<h:commandButton action="#{newsActionController.edit(newsForm)}"
+					value="#{msg['detailPage.button.edit']}" styleClass="submitStyle">
+					<f:param name="newsId" value="#{newsForm.news.id}"></f:param>
+				</h:commandButton>
+			</h:form>
+			<h:form>
+				<h:commandButton action="#{newsActionController.delete(newsForm)}"
+					value="#{msg['detailPage.button.delete']}" styleClass="submitStyle"
+					onclick="return confirmDelete();">
+					<f:param name="newsId" value="#{newsForm.news.id}"></f:param>
+				</h:commandButton>
+			</h:form>
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>
+</html>
