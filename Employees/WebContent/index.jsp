@@ -1,0 +1,1 @@
+<jsp:forward page="/EmployeeAction.do?method=list" /> 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE products SYSTEM "products.dtd"> -->
+<tns:products xmlns:tns="http://www.example.org/products"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/products products.xsd ">
+	<?xml-stylesheet type="text/xsl" href="products.xsl"?>
+
+	<tns:category name="refrigerators">
+		<tns:subcategory name="domestic">
+			<tns:product name="refrigerator">
+				<tns:producer>atlant</tns:producer>
+				<tns:model>xm031</tns:model>
+				<tns:date-issue>03-03-2013</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:miss>not in stock</tns:miss>
+			</tns:product>
+			<tns:product name="refrigerator">
+				<tns:producer>atlant</tns:producer>
+				<tns:model>xm022</tns:model>
+				<tns:date-issue>09-01-2012</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:price>382</tns:price>
+			</tns:product>
+		</tns:subcategory>
+
+		<tns:subcategory name="imported">
+			<tns:product name="refrigerator">
+				<tns:producer>lg</tns:producer>
+				<tns:model>ga409</tns:model>
+				<tns:date-issue>01-02-2013</tns:date-issue>
+				<tns:color>silver</tns:color>
+				<tns:price>618</tns:price>
+			</tns:product>
+			<tns:product name="refrigerator">
+				<tns:producer>sumsung</tns:producer>
+				<tns:model>rl052</tns:model>
+				<tns:date-issue>09-01-2012</tns:date-issue>
+				<tns:color>silver</tns:color>
+				<tns:price>964</tns:price>
+			</tns:product>
+		</tns:subcategory>
+	</tns:category>
+
+
+	<tns:category name="washing machines">
+		<tns:subcategory name="domestic">
+			<tns:product name="washing machine">
+				<tns:producer>atlant</tns:producer>
+				<tns:model>uu102</tns:model>
+				<tns:date-issue>21-03-2013</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:price>278</tns:price>
+			</tns:product>
+			<tns:product name="washing machine">
+				<tns:producer>atlant</tns:producer>
+				<tns:model>cc107</tns:model>
+				<tns:date-issue>16-01-2012</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:price>289</tns:price>
+			</tns:product>
+		</tns:subcategory>
+
+		<tns:subcategory name="imported">
+			<tns:product name="washing machine">
+				<tns:producer>indesit</tns:producer>
+				<tns:model>wi103</tns:model>
+				<tns:date-issue>21-02-2013</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:price>251</tns:price>
+			</tns:product>
+			<tns:product name="washing machine">
+				<tns:producer>bosh</tns:producer>
+				<tns:model>wl200</tns:model>
+				<tns:date-issue>09-01-2010</tns:date-issue>
+				<tns:color>white</tns:color>
+				<tns:price>349</tns:price>
+			</tns:product>
+		</tns:subcategory>
+	</tns:category>
+</tns:products>

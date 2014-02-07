@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "- //Hibernate/Hibernate
+Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.epam.employees.model">
+
+	<class name="Address" table="ADDRESSES" lazy="false" batch-size="100">
+		<id name="id" column="ADDRESS_ID" unsaved-value="null" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">ADDRESSES_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="street" column="ADDRESS_STREET" type="java.lang.String" />
+
+		<many-to-one name="city" column="CITY_ID"	class="com.epam.employees.model.City" />
+	</class>
+	
+	 
+</hibernate-mapping>  
+

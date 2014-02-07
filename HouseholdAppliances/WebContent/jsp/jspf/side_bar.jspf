@@ -1,0 +1,81 @@
+<!-- Set Greeting  Attributes -->
+<c:set var="greeting" scope="session">
+	<fmt:message key='index.main.greeting' />
+</c:set>
+<c:set var="present" scope="session">
+	<fmt:message key='index.main.role_present' />
+</c:set>
+
+<!-- Setting SideBar -->
+<div id="sidebar">
+	<div id="logo">
+		<h1>
+			<a href="${pageContext.request.contextPath}/controller"> <fmt:message
+					key="side_bar.emblem" /></a>
+		</h1>
+	</div>
+	<div id="menu" class="boxed">
+		<div class="content">
+			<ul>
+				<li class="active"><a href="controller?command=to main"> <fmt:message
+							key="side_bar.menu.homepage" /></a></li>
+				<li><a href="files/agreement.txt"> <fmt:message
+							key="side_bar.menu.agreement" /></a></li>
+				<li><a href="mailto:mmfbahmutsk@gmail.com"> <fmt:message
+							key="side_bar.menu.support" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- SideBar > Login -->
+	<div id="login" class="boxed">
+		<h2 class="title">Client Account</h2>
+		<div class="content">
+
+
+			<ctg:hello role="${userRole}" login="${userLogin}"
+				greeting="${greeting}" present="${present}"></ctg:hello>
+
+
+			<form name="loginForm" method="get">
+				<fieldset>
+					<legend>Sign-In</legend>
+					<c:remove var="buttonInscription" />
+					<c:choose>
+						<c:when test="${empty userRole}">
+							<label for="inputtext1"><fmt:message
+									key="side_bar.login_form.login" /></label>
+							<input id="inputtext1" type="text" name="login" value="" />
+							<label for="inputtext2"> <fmt:message
+									key="side_bar.login_form.password" />
+							</label>
+							<input id="inputtext2" type="password" name="password" value="" />
+							<br />
+							<div class="error">${loginDataError} ${loginIsExist}</div>
+							<c:set var="buttonInscription" value="Log In" scope="session" />
+							<input type="hidden" name="command" value="${buttonInscription}">
+							<input id="inputsubmit1" type="submit"
+								value='<fmt:message	key="side_bar.log_in" />'
+								formaction="${pageContext
+							.request.contextPath}
+								/controller?command" />
+							<button id="inputsubmit2" class='click' type="button"
+								name="inputsubmit2">
+								<fmt:message key="side_bar.login_form.registration_button" />
+							</button>
+						</c:when>
+						<c:otherwise>
+							<c:set var="buttonInscription" value="Log Out" scope="session" />
+							<input type="hidden" name="command" value="${buttonInscription}">
+							<input id="inputsubmit1" type="submit"
+								value='<fmt:message	key="side_bar.log_out" />'
+								formaction="${pageContext
+							.request.contextPath}
+								/controller?command" />
+						</c:otherwise>
+					</c:choose>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

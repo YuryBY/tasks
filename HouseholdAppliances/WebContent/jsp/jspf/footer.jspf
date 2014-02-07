@@ -1,0 +1,9 @@
+<div id="footer">
+	<p id="legal">Copyright &copy; 2013 Yury Bakhmutski. All Rights
+		Reserved.</p>
+	<p id="links">
+		<a href="http://pogoda.by/"><fmt:message key="footer.home" /></a> | <a
+			href="mailto:mmfbahmutsk@gmail.com"><fmt:message key="footer.e_mail" /></a>
+	</p>
+</div>
+

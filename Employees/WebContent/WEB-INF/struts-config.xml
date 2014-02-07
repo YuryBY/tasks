@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- Form Beans Configuration -->
+	<form-beans>
+		<form-bean name="employeeForm"
+			type="com.epam.employees.presentation.form.EmployeeForm" />
+	</form-beans>
+
+	<global-forwards>
+		<forward name="index" path="/index.jsp" redirect="true"/>
+		<forward name="error" path="employeeError.page"/>
+	</global-forwards>
+
+	<!-- Action Mappings Configuration -->
+	<action-mappings>
+		<action  path="/EmployeeAction" type="org.springframework.web.struts.DelegatingActionProxy" 
+			parameter="method" scope="session" name="employeeForm" validate="false">
+			<forward name="employeeList" path="employeeList.page" />
+		</action>
+
+	</action-mappings>
+
+	<!-- Tiles request processor -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- Resources -->
+	<message-resources parameter="com/epam/employees/resource/ApplicationResource" />
+
+	<!-- ========================= Tiles plugin =============================== -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/xml/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>  
+	
+	<!-- ========================= Spring plugin ================================= -->
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/xml/beans.xml" />
+	</plug-in>
+</struts-config>

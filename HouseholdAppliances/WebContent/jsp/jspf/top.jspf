@@ -1,0 +1,37 @@
+<!-- Administrator's Panel -->
+<div class="meta">
+	<c:if test="${userRole=='administrator'}">
+		<form class="adminform" method="post"
+			action="${pageContext.request.contextPath}/controller?command=Create New Disk">
+			<fmt:message key="top.main.visible_by_admin" />
+			<input type="submit" value='<fmt:message key="top.main.new_disk" />' />
+		</form>
+		<form method="post"
+			action="${pageContext.request.contextPath}/controller?command=Control Payments">
+			<input type="submit" value='<fmt:message key="top.main.payments" />' />
+		</form>
+	</c:if>
+</div>
+
+<!-- Welcome Part -->
+<div id="welcome" class="post">
+	<h2 class="title">
+		<fmt:message key="top.main.welcome" />
+	</h2>
+	<h3 class="date">
+		<span> <jsp:useBean id="now" class="java.util.Date" /> <fmt:setLocale
+				value="${locale}" /> <c:set var="date" value="${java.util.Date}">
+
+			</c:set> <fmt:formatDate value="${now}" type="both" dateStyle="medium"
+				timeStyle="medium" /><br /> <fmt:formatDate value="${date}"
+				type="both" dateStyle="medium" timeStyle="medium" />
+			${java.util.Date}
+		</span>
+	</h3>
+	<div class="meta">&nbsp;</div>
+	<div class="story">
+		<div id="imgGuitar"></div>
+		<p>
+			<fmt:message key="top.main.welcome_text" />
+		</p>
+	</div>

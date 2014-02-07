@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/products"
+	xmlns:tns="http://www.example.org/products" elementFormDefault="qualified">
+
+	<element name="products">
+		<complexType>
+			<sequence>
+				<element name="category" type="tns:Category" maxOccurs="unbounded"
+					minOccurs="0"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Category">
+		<sequence>
+			<element name="subcategory" type="tns:Subcategory" maxOccurs="2"
+				minOccurs="1"></element>
+		</sequence>
+		<attribute name="name" type="tns:CategoryList" use="required" />
+	</complexType>
+
+	<complexType name="Subcategory">
+		<sequence>
+			<element name="product" type="tns:Product" maxOccurs="unbounded"
+				minOccurs="0"></element>
+		</sequence>
+		<attribute name="name" type="tns:SubcategoryList" use="required" />
+	</complexType>
+
+	<complexType name="Product">
+		<sequence>
+			<element name="producer" type="string"></element>
+			<element name="model" type="tns:Model"></element>
+			<element name="date-issue" type="tns:DateIssue"></element>
+			<element name="color" type="string"></element>
+			<choice>
+				<element name="price" type="float"></element>
+				<element name="miss" type="string" default="not in stock"></element>
+			</choice>
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>
+
+	<simpleType name="Model">
+		<restriction base="string">
+			<pattern value="[^\s\d]{2}\d{3}" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DateIssue">
+		<restriction base="string">
+			<pattern
+				value="(([1-2][0-9])|(3[0-1])|([1-9]|0[1-9]))-((1[0-2])|(([1-9])|(0[1-9])))-([1-9][0-9]{0,3}))" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="CategoryList">
+		<restriction base="string">
+			<enumeration value="refrigerators"></enumeration>
+			<enumeration value="washing machines"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="SubcategoryList">
+		<restriction base="string">
+			<enumeration value="domestic"></enumeration>
+			<enumeration value="imported"></enumeration>
+		</restriction>
+	</simpleType>
+
+</schema>

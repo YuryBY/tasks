@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "- //Hibernate/Hibernate
+Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.epam.employees.model">
+
+	<class name="Job" table="JOBS" lazy="false">
+		<id name="id" column="JOB_ID" unsaved-value="null" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">JOBS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="employee" column="EMPLOYEE_ID"
+			class="com.epam.employees.model.Employee" />
+
+		<many-to-one name="office" column="OFFICE_ID"
+			class="com.epam.employees.model.Office" />
+			
+		<many-to-one name="position" column="POSITION_ID"
+			class="com.epam.employees.model.Position" />
+	
+	</class>
+</hibernate-mapping> 

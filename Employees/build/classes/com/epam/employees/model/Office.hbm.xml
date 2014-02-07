@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "- //Hibernate/Hibernate
+Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.epam.employees.model">
+
+	<class name="Office" table="OFFICES" lazy="false">
+		<id name="id" column="OFFICE_ID" unsaved-value="null" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">OFFICES_SEQ</param>
+			</generator>
+		</id>
+		
+		<!--  <many-to-one class="com.epam.task.entity.Company" fetch="join" name="company">
+      <column name="ID_COMPANY" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.epam.task.entity.Address" fetch="join" name="address" lazy="false" >
+      <column name="ID_ADDRESS" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="officeName" type="string">
+      <column length="50" name="OFFICE_NAME" not-null="true"/>
+    </property>
+    -->
+		<many-to-one name="company" column="COMPANY_ID "
+			class="com.epam.employees.model.Company"   />
+
+		<many-to-one name="address" column="ADDRESS_ID"
+			class="com.epam.employees.model.Address"   />
+
+		<property name="employeeNumber"
+			formula="(select count(*) from JOBS e
+where e.OFFICE_ID = OFFICE_ID)"></property>
+	</class>
+</hibernate-mapping>   
+

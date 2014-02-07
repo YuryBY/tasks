@@ -1,0 +1,135 @@
+/*Start Tag style*/
+body,html {
+	margin: 0px;
+	padding: 0px;
+	height: 99%;
+}
+
+table tr td {
+	text-align: center;
+	vertical-align: top;
+}
+
+* html #maket {
+	height: 99%;
+}
+
+a:hover {
+	color: orange;
+}
+
+form {
+	margin: 0px;
+}
+
+noscript {
+	color: red;
+	text-align: center;
+}
+
+textarea {
+	overflow: scroll; 
+}
+/*End Tag style*/
+
+/*Start Common style*/
+.contenttable {
+	width: 680px;
+	margin-left: 30px;
+}
+
+.itemBrief {
+	width: 100px;
+	text-align: justify;
+	vertical-align: top;
+}
+
+.hidden {
+	display: none;
+}
+
+.button {
+	text-transform: uppercase;
+}
+
+.infoMessage {
+	align: center;
+}
+
+/*End Common style*/
+
+/*Start Maket style*/
+#maket {
+	width: 960px;
+	margin: 0 auto;
+	min-height: 99%;
+	border: solid 2px black;
+}
+/*End Maket style*/
+
+/*Start Header style*/
+#header {
+	border-bottom: solid 2px black;
+	height: 70px;
+}
+
+#title {
+	color: #14588C;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-weight: 900;
+	text-indent: 40px;
+	margin-top: 20px;
+	text-align: left;
+}
+
+#language {
+	margin-right: 20px;
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+/*End Header style*/
+
+/*Start Content style*/
+#content {
+	background-color: #FFFFFF;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+	border: solid 1px black;
+	border-color: #AAAAAA;
+}
+
+/*End Content style*/
+
+/*Start Body style*/
+#body {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+/*End Body style*/
+
+/*Start Footer style*/
+#footer {
+	font-weight: bold;
+	clear: both;
+	height: 25px;
+	margin-top: -25px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	border-top: solid 2px black;
+}
+
+#footerindent {
+	height: 25px;
+}
+/*End Footer style*/
+
+/*Start Errors style*/
+.errors {
+	color: red;
+}
+/*End Errors style*/

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "- //Hibernate/Hibernate
+Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.epam.employees.model">
+
+	<class name="Country" table="COUNTRIES" lazy="false">
+		<id name="id" column="COUNTRY_ID" unsaved-value="null" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">COUNTRIES_SEQ</param>
+			</generator>
+		</id>
+		<property name="name" column="COUNTRY_NAME" type="java.lang.String" />
+	</class>
+
+</hibernate-mapping>
