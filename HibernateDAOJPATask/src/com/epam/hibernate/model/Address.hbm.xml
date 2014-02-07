@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 April 2011 10:01:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.epam.hibernate.model.Address" table="ADDRESS">
+        <id name="id" type="int">
+            <column name="id" precision="10" scale="0"/>
+            <generator class="sequence" >
+            	<param name="sequence">ADDRESS_SEQ</param>
+                <param name="allocationSize">1</param>
+            </generator>
+        </id>
+        
+        <property name="street" type="string">
+            <column name="STREET" length="100" not-null="true" unique-key="unique_address"/>
+        </property>
+        
+        <property name="house" type="int">
+            <column name="HOUSE" not-null="true" unique-key="unique_address"/>
+        </property>
+        
+        <property name="room" type="int">
+            <column name="ROOM" not-null="true" unique-key="unique_address"/>
+        </property>
+        
+        <property name="housing" type="integer">
+            <column name="HOUSING" unique-key="unique_address"/>
+        </property>
+        
+        <many-to-one name="city" class="com.epam.hibernate.model.City" cascade="save-update" fetch="join">
+			<column name="CITY_ID" not-null="true"/>
+		</many-to-one>
+        
+        <set name="officeSet" table="OFFICE" inverse="true" cascade="all">
+            <key>
+                <column name="ADDRESS_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.epam.hibernate.model.Office" />
+        </set>
+    </class>
+</hibernate-mapping>

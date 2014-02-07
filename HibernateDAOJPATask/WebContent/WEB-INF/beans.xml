@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- =======================================DAOBeans============================ -->
+	<bean id="hibernateEmployeeDAO" class="com.epam.hibernate.database.hibernate.HibernateEmployeeDAO"/>
+	<bean id="jpaEmployeeDAO" class="com.epam.hibernate.database.jpa.JPAEmployeeDAO"/>
+	<bean id="jdbcEmployeeDAO" class="com.epam.hibernate.database.jdbc.JDBCEmployeeDAO">
+		<constructor-arg ref="connectionPool" />
+	</bean>
+	
+	<bean id="connectionPool" class="com.epam.hibernate.database.jdbc.connection.ConnectionPool"
+		factory-method="getInstance" destroy-method="close">
+		<constructor-arg value="resources.jdbc" />
+	</bean>
+	
+	<!-- =======================================JDBC================================ -->
+	<bean id="jdbcDAOFactory" class="com.epam.hibernate.database.jdbc.JDBCEmpoyeeDAOFactory"/>
+
+	<!-- =======================================JPA================================ -->
+	<bean id="jpaDAOFactory" class="com.epam.hibernate.database.jpa.JPADAOFactory"
+		destroy-method="close" />
+
+	<!-- ====================================Hibernate============================= -->
+	<bean id="hibernateDAOFactory"
+		class="com.epam.hibernate.database.hibernate.HibernateDAOFactory"
+		destroy-method="close" />
+	
+	<!-- ====================================ActionForm============================= -->
+	<bean name="/EmployeeAction" class="com.epam.hibernate.presentation.action.EmployeeAction">
+		<property name="daoFactory" ref="jdbcDAOFactory" />
+	</bean>
+</beans>

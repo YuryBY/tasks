@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 April 2011 10:01:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.epam.hibernate.model.Job" table="JOB" >
+		<id name="id" type="int">
+			<column name="id" precision="10" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">JOB_SEQ</param>
+				<param name="allocationSize">1</param>
+			</generator>
+		</id>
+
+		<many-to-one name="employee" class="com.epam.hibernate.model.Employee" lazy="proxy" cascade="save-update">
+			<column name="EMPLOYEE_ID"/>
+		</many-to-one>
+
+		<many-to-one name="position" class="com.epam.hibernate.model.Position" fetch="join" cascade="save-update">
+			<column name="POSITION_ID" not-null="true"/>
+		</many-to-one>
+
+		<many-to-one name="office" class="com.epam.hibernate.model.Office" fetch="join" cascade="save-update" >
+			<column name="OFFICE_ID" not-null="true"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

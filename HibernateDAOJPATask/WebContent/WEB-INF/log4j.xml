@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- <appender name="ErrorAppender" class="org.apache.log4j.FileAppender"> 
+		<param name="File" value="C://My own//Eclipse//Projects//TestProject//WebContent//logs//log.txt" 
+		/> <param name="append" value="true" /> <layout class="org.apache.log4j.PatternLayout"> 
+		<param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} [%t] %-5p 
+		%c_method: %M- %m %n" /> </layout> <filter class="org.apache.log4j.varia.LevelRangeFilter"> 
+		<param name="LevelMax" value="OFF"/> <param name="LevelMin" value="ERROR"/> 
+		</filter> </appender> -->
+
+	<appender name="DebugAppender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="C://debug.txt" />
+		<param name="append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} %M: %m %n" />
+		</layout>
+	<!-- 	<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="OFF" />
+			<param name="LevelMin" value="TRACE" />
+		</filter> -->
+	</appender>
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} %M: %m %n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="OFF" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	
+	<logger name="org.hibernate.type"  >
+		<level value="OFF"></level>
+	</logger>
+	
+	<logger name="org.hibernate.SQL"  >
+		<level value="OFF"></level>
+	</logger>
+	
+	<logger name="org.hibernate"  >
+		<level value="OFF"></level>
+	</logger>
+	
+	<logger name="org.hibernate.tool.hbm2ddl">
+		<level value="OFF" />
+	</logger>
+	
+	<logger name="org.hibernate.hql.ast.AST">
+		<level value="DEBUG" />
+	</logger>
+	
+<!-- 	<category name="org.hibernate">
+		<priority value="DEBUG"/>
+	</category>
+	
+	
+	<logger name="org.hibernate">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.hql.ast.AST">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.type">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.tool.hbm2ddl">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.SQL">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.hql">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.cache">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+
+	<logger name="org.hibernate.transaction">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	<logger name="org.hibernate.jdbc">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger>
+	
+	
+	<logger name="org.hibernate.connection.DriverManagerConnectionProvider">
+		<level value="ALL" />
+		<appender-ref ref="DebugAppender" />
+	</logger> -->
+	<!-- <logger name="org.hibernate.SQL" > <level value="DEBUG" /> <appender-ref 
+		ref="ConsoleAppender" /> </logger> -->
+
+	<!-- <logger name="org.hibernate" > <level value="DEBUG" /> </logger> <logger 
+		name="org.hibernate.hql.ast.AST" > <level value="DEBUG" /> </logger> <logger 
+		name="org.hibernate.SQL" > <level value="DEBUG" /> </logger> <logger name="org.hibernate.type" 
+		> <level value="DEBUG" /> </logger> <logger name="org.hibernate.jdbc" > <level 
+		value="DEBUG" /> </logger> <logger name="org.hibernate.transaction" > <level 
+		value="DEBUG" /> </logger> <logger name="org.hibernate.hql" > <level value="DEBUG" 
+		/> </logger> <logger name="org.hibernate.tool.hbm2ddl" > <level value="DEBUG" 
+		/> </logger> <logger name="org.hibernate.SQL" > <level value="DEBUG" /> </logger> -->
+
+	<root>
+		<priority value="INFO" />
+		<!-- <appender-ref ref="ErrorAppender" /> -->
+		<appender-ref ref="DebugAppender" />
+		<appender-ref ref="ConsoleAppender" />
+	</root>
+</log4j:configuration> 

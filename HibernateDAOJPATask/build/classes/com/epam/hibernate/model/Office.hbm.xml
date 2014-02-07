@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 April 2011 10:01:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.epam.hibernate.model.Office" table="OFFICE">
+        <id name="id" type="int">
+            <column name="id" precision="10" scale="0"/>
+            <generator class="sequence" >
+            	<param name="sequence">OFFICE_SEQ</param>
+                <param name="allocationSize">1</param>
+            </generator>
+        </id>
+        
+        <property name="employeeCount" type="int" 
+        		formula="(SELECT COUNT(*) FROM JOB WHERE JOB.OFFICE_ID=ID)"/>
+        
+        <many-to-one name="address" class="com.epam.hibernate.model.Address" cascade="save-update" fetch="join">
+			<column name="ADDRESS_ID" not-null="true" unique-key="unique_office"/>
+		</many-to-one>
+        
+        <many-to-one name="company" class="com.epam.hibernate.model.Company" cascade="save-update" fetch="join">
+			<column name="COMPANY_ID" not-null="true" unique-key="unique_office"/>
+		</many-to-one>
+		
+		<set name="jobSet" table="JOB" inverse="true" lazy="true" cascade="all">
+            <key>
+                <column name="OFFICE_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.epam.hibernate.model.Job" />
+        </set>
+    </class>
+</hibernate-mapping>

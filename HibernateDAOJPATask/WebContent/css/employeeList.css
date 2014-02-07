@@ -1,0 +1,68 @@
+td, th {
+	text-align: center;
+	border: 1px solid #000;
+	padding: 2px;
+}
+table {
+	margin: 0 auto;
+	border: 1px solid #000;
+}
+.sizeRestriction {
+	max-width: 250px;
+}
+
+tr {
+	padding-top: 25px;
+}
+
+.itemPages {
+	text-align: center;
+}
+
+a:link, a:visited, a:active, a:hover {
+	color: #000;
+}
+.currentNumber {
+	color: #ccc;
+	font-weight: bold;
+}
+.navigation{
+	position: relative;
+	text-align: center;
+}
+.container {
+	display: inline-block;
+	margin-top: 10px;
+	min-width: 220px;
+}
+.nextButton {
+	vertical-align: middle;
+	width: 30px;
+	display: inline-block;
+	margin-left: 10px;
+	cursor:pointer;
+}
+.previousButton {
+	vertical-align: middle;
+	width: 30px;
+	display: inline-block;
+	margin-right: 10px;
+	cursor:pointer;
+}
+.currentPage {
+	text-align: center;
+}
+.toFirstPage, .toFirstPage:link, .toFirstPage:visited, .toFirstPage:active, .toFirstPage:hover {
+	display: inline-block;
+	text-decoration: none;
+	margin-right: 20px;
+	color: #06f;
+	font-weight: bold;
+}
+.toLastPage, .toLastPage:link, .toLastPage:visited, .toLastPage:active, .toLastPage:hover {
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 20px;
+	color: #06f;
+	font-weight: bold;
+}
